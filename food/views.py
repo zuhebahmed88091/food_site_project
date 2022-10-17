@@ -12,7 +12,7 @@ def index(request):
         'item_list': item_list
     }
     return render(request, 'food/index.html', context)
-    return HttpResponse(template.render(context, request))
+    # return HttpResponse(template.render(context, request))
 
 
 def item(request):
