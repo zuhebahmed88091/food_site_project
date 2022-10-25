@@ -10,13 +10,28 @@
     {% block body %}
 
         {% for item in item_list %}
-            <ul>
-                <li>
-                    <a href="{% url 'food:detail' item.id %}"> {{ item.id }} --> {{ item.item_name }} </a>
-                </li>
-            </ul>
+
+            <div class="row">
+                <div class="col-md-3 offset-md-2 pt-2">
+                    <img class="card" style="height:250px" src="{{ item.item_image }}" alt="image">
+                </div>
+                <div class="col-md-4 pt-2">
+                    <h3>{{ item.item_name }}</h3>
+                    <h5>{{ item.item_description }}</h5>
+                    <h6>${{ item.item_price }}</h6>
+                </div>
+                <div class="col-md-2 pt-2">
+                    <a href="{% url 'food:detail' item.id %}" class="btn btn-success">Details</a>
+
+                </div>
+            </div> 
         {% endfor %}
 
     {% endblock %}
+    {% comment %} <ul>
+        <li>
+            <a href="{% url 'food:detail' item.id %}"> {{ item.id }} --> {{ item.item_name }} </a>
+        </li>
+    </ul> {% endcomment %}
 </body>
 </html>
